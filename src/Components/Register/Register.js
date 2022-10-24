@@ -21,6 +21,7 @@ const Register = () => {
   const registerBtn = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
+    const photoURL = e.target.photoURL.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
 
@@ -28,10 +29,10 @@ const Register = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
         alert("Please go to login page");
         // ...
-        handleUserUpdate(name);
+        handleUserUpdate(name, photoURL);
+        console.log(user)
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -40,9 +41,10 @@ const Register = () => {
       });
   };
 
-  const handleUserUpdate = (name) => {
+  const handleUserUpdate = (name, photoURL) => {
     const profile = {
       displayName: name,
+      photoURL : photoURL
     };
 
     profileUpdate(profile)
@@ -62,12 +64,23 @@ const Register = () => {
             <form onSubmit={registerBtn} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text">Full Name</span>
                 </label>
                 <input
                   type="text"
                   name="name"
                   placeholder="Name"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo Url</span>
+                </label>
+                <input
+                  type="text"
+                  name="photoURL"
+                  placeholder="Photo URL"
                   className="input input-bordered"
                 />
               </div>

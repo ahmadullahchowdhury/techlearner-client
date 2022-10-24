@@ -35,9 +35,12 @@ const Header = () => {
         </div>
         <div className="flex-1">
           <img className="w-7 h-7" src="techlearners.png" alt="logo"></img>
-          <a className="btn btn-ghost normal-case text-xl">TechLearners</a>
-          <p>{user?.email}</p>
-          <p>{user?.displayName}</p>
+          <a className="btn btn-ghost normal-case text-xl">TechLearners</a>{
+            user?.photoURL  ? (
+
+              <img className="w-8 h-8 rounded-full  " src={user?.photoURL } alt="photo" title = {user?.displayName} />
+            ): (<p>No User Signed In</p>)
+          }
         </div>
         <div className="flex-none">
           <ul
