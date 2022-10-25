@@ -42,6 +42,7 @@ const Login = () => {
         // The signed-in user info.
         const user = result.user;
         console.log(user)
+        navigate(from, {replace: true})
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -61,12 +62,14 @@ const Login = () => {
         // The signed-in user info.
         const user = result.user;
         console.log(user)
+        navigate(from, {replace: true})
         // ...
       }).catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         setError(errorMessage)
+        
         // The email of the user's account used.
 
         // ...

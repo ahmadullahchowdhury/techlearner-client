@@ -10,12 +10,13 @@ import {
 } from "firebase/auth";
 import app from "../Firebase/firebase.init";
 import { fireAuthContext } from "../../UserContext/UserContext";
-import { Link } from 'react-router-dom'
+import { Link , useNavigate } from 'react-router-dom'
 const auth = getAuth(app);
 
 
 
 const Register = () => {
+  const  navigate = useNavigate()
   const { createUser, profileUpdate } = useContext(fireAuthContext);
   const [accepted, setAccepted] = useState(false)  
   const registerBtn = (e) => {
@@ -32,7 +33,7 @@ const Register = () => {
         alert("Please go to login page");
         // ...
         handleUserUpdate(name, photoURL);
-        console.log(user)
+        navigate("/login")
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -34,8 +34,8 @@ const Header = () => {
           )}
         </div>
         <div className="flex-1">
-          <img className="w-7 h-7" src="techlearners.png" alt="logo"></img>
-          <a className="btn btn-ghost normal-case text-xl">TechLearners</a>{
+          <img className=" ml-5 w-7 h-7" src="techlearners.png" alt="logo"></img>
+          <Link to="/" className="btn btn-ghost normal-case text-xl">TechLearners</Link>{
             user?.photoURL  ? (
 
               <img className="w-8 h-8 rounded-full  " src={user?.photoURL } alt="photo" title = {user?.displayName} />

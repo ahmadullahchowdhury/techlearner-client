@@ -10,6 +10,7 @@ const Courses = () => {
 
       <div className="flex flex-col w-full lg:flex-row">
         <div className=" p-6 h-1/2 card bg-base-300 rounded-box place-items-center">
+            <p className="text-2xl font-bold">All Courses </p>
           {data.map((course) => (
             <Link to={`/courses/${course.id}`} className="p-2" key={course.id}>
               {course.name}
@@ -20,15 +21,15 @@ const Courses = () => {
         <div className=" grid grid-cols-3 card bg-base-300 rounded-box place-items-center">
           {data.map((course) => (
             <div key={course.id} className="card w-96 bg-base-100 shadow-xl">
-              <figure className="  px-10 pt-10">
+              <figure className="   pt-10">
                 <img
                   src = {course.img}
                   alt="img"
-                  className="rounded-xl "
+                  className="rounded "
                 />
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title">{course.name}</h2>
+                <h2 className="card-title p-3">{course.name}</h2>
                 <div className="card-actions">
                   <button className="btn btn-primary"><Link to={`/courses/${course.id}`}>Course Details</Link></button>
                 </div>
