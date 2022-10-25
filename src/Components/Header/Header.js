@@ -70,6 +70,12 @@ const Header = () => {
               <li>
                 <NavLink to="/login">Log In</NavLink>
               </li>
+
+            //               <li>
+            //   <NavLink className="" to="/register">
+            //     Register
+            //   </NavLink>
+            // </li>
             )}
             {/* <li>
               <NavLink to="/login">Login</NavLink>

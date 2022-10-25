@@ -12,6 +12,7 @@ import Terms from './Components/Terms/Terms';
 import FAQ from './Components/FAQ/FAQ';
 import Blog from './Components/Blog/Blog';
 import CourseDetails from './Components/CourseDetails/CourseDetails';
+import CheckOut from './Components/CheckOut/CheckOut';
 function App() {
   const router = createBrowserRouter([
     {
@@ -37,6 +38,14 @@ function App() {
             return fetch(`http://localhost:5000/courses/${params.id}`)
           },
           element: <CourseDetails></CourseDetails>,
+          errorElement: <Error></Error>
+        },
+        {
+          path: "/checkout/:id",
+          loader:  ( {params} )=> {
+            return fetch(`http://localhost:5000/courses/${params.id}`)
+          },
+          element: <CheckOut></CheckOut>,
           errorElement: <Error></Error>
         },
         {

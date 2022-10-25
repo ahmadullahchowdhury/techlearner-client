@@ -12,7 +12,7 @@ const Courses = () => {
         <div className=" p-6 h-1/2 card bg-base-300 rounded-box place-items-center">
           {data.map((course) => (
             <Link to={`/courses/${course.id}`} className="p-2" key={course.id}>
-             {course.id} {course.name}
+              {course.name}
             </Link>
           ))}
         </div>
@@ -29,7 +29,6 @@ const Courses = () => {
               </figure>
               <div className="card-body items-center text-center">
                 <h2 className="card-title">{course.name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
                 <div className="card-actions">
                   <button className="btn btn-primary"><Link to={`/courses/${course.id}`}>Course Details</Link></button>
                 </div>
