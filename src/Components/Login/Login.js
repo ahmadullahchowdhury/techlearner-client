@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import {useNavigate , useLocation} from 'react-router-dom'
-import { getAuth, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import React, { useContext, useState } from "react";
+import {useNavigate , useLocation , Link} from 'react-router-dom'
+import { getAuth,  } from "firebase/auth";
 import app from "../Firebase/firebase.init";
 import { fireAuthContext } from "../../UserContext/UserContext";
 
@@ -8,6 +8,7 @@ const auth = getAuth(app);
 
 
 const Login = () => {
+    const [error, setError] = useState('')
     let location = useLocation()
     let from = location.state?.from?.pathname || '/'
     const  navigate = useNavigate()
@@ -23,12 +24,13 @@ const Login = () => {
           const user = userCredential.user;
           navigate(from, {replace: true})
           console.log(user)
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          setError(errorMessage)
         });
+        
     };
 
 
@@ -45,6 +47,7 @@ const Login = () => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorMessage)
         // The email of the user's account used.
 
         // ...
@@ -63,6 +66,7 @@ const Login = () => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorMessage)
         // The email of the user's account used.
 
         // ...
@@ -96,10 +100,11 @@ const Login = () => {
                   name="password"
                   className="input input-bordered"
                 />
+                <p className="text-orange-700 p-3">{error}</p>
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
+                  <Link to="/register" className="label-text-alt link link-hover">
+                    New to This Site? Goto Register.
+                  </Link>
                 </label>
               </div>
               <div className="form-control mt-6">

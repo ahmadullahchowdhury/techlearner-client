@@ -29,13 +29,16 @@ function App() {
         },
         {
           path: "/",
+          loader:  ()=> {
+            return fetch('https://nodejs-practise.vercel.app/courses')
+          },
           element: <Courses></Courses>,
           errorElement: <Error></Error>
         },
         {
           path: "/courses/:id",
           loader:  ( {params} )=> {
-            return fetch(`http://localhost:5000/courses/${params.id}`)
+            return fetch(`https://nodejs-practise.vercel.app/courses/${params.id}`)
           },
           element: <CourseDetails></CourseDetails>,
           errorElement: <Error></Error>
@@ -43,9 +46,9 @@ function App() {
         {
           path: "/checkout/:id",
           loader:  ( {params} )=> {
-            return fetch(`http://localhost:5000/courses/${params.id}`)
+            return fetch(`https://nodejs-practise.vercel.app/courses/${params.id}`)
           },
-          element: <CheckOut></CheckOut>,
+          element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
           errorElement: <Error></Error>
         },
         {
