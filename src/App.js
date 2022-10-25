@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from './Components/Error/Error';
-import Home from './Components/Courses/Courses';
+import Courses from './Components/Courses/Courses';
 import Main from './Components/Main/Main';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
@@ -11,6 +11,7 @@ import Orders from './Components/Orders/Orders';
 import Terms from './Components/Terms/Terms';
 import FAQ from './Components/FAQ/FAQ';
 import Blog from './Components/Blog/Blog';
+import CourseDetails from './Components/CourseDetails/CourseDetails';
 function App() {
   const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ function App() {
       children: [
         {
           path: "courses",
-          element: <Home></Home>,
+          element: <Courses></Courses>,
           loader:  ()=> {
             return fetch('https://nodejs-practise.vercel.app/courses')
           },
@@ -27,7 +28,15 @@ function App() {
         },
         {
           path: "/",
-          element: <Home/>,
+          element: <Courses></Courses>,
+          errorElement: <Error></Error>
+        },
+        {
+          path: "/courses/:id",
+          loader:  ( {params} )=> {
+            return fetch(`http://localhost:5000/courses/${params.id}`)
+          },
+          element: <CourseDetails></CourseDetails>,
           errorElement: <Error></Error>
         },
         {
