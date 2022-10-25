@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from './Components/Error/Error';
-import Home from './Components/Home/Home';
+import Home from './Components/Courses/Courses';
 import Main from './Components/Main/Main';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
@@ -18,10 +18,10 @@ function App() {
       element: <Main></Main>,
       children: [
         {
-          path: "home",
+          path: "courses",
           element: <Home></Home>,
           loader:  ()=> {
-            return fetch('https://nodejs-practise-kowcher99.vercel.app/exercise/')
+            return fetch('https://nodejs-practise.vercel.app/courses')
           },
           errorElement: <Error></Error>
         },
