@@ -18,7 +18,7 @@ const Courses = () => {
           ))}
         </div>
         <div className="divider lg:divider-horizontal"></div>
-        <div className=" grid grid-cols-3 card bg-base-300 rounded-box place-items-center">
+        <div className=" lg:grid grid-cols-3 card bg-base-300 rounded-box place-items-center">
           {data.map((course) => (
             <div key={course.id} className="card w-96 bg-base-100 shadow-xl">
               <figure className="   pt-10">

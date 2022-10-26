@@ -22,10 +22,10 @@ const Header = () => {
   };
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar text-white bg-orange-500">
         <div
           onClick={iconClick}
-          className=" md:hidden absolute right-0 mt-5 mr-5"
+          className=" md:hidden absolute right-0  mr-5"
         >
           {open ? (
             <XMarkIcon className="h-6 w-6  text-blue-500" />
@@ -39,14 +39,14 @@ const Header = () => {
             user?.photoURL  ? (
 
               <img className="w-8 h-8 rounded-full  " src={user?.photoURL } alt="photo" title = {user?.displayName} />
-            ): (<p>No User Signed In</p>)
+            ): (<p>No User</p>)
           }
         </div>
         <div className="flex-none">
           <ul
             className={`menu menu-horizontal p-1   md:static absolute ${
               open
-                ? "top-10 flex flex-col   w-full absolute left-0 p-3"
+                ? "top-14 flex flex-col bg-orange-500 z-40 text-white   w-full absolute left-0 p-3"
                 : "top-[-120px]"
             }`}
           >
@@ -69,6 +69,9 @@ const Header = () => {
             ) : (
               <li>
                 <NavLink to="/login">Log In</NavLink>
+                <NavLink className="" to="/register">
+                Register
+              </NavLink>
               </li>
 
             //               <li>
@@ -80,15 +83,15 @@ const Header = () => {
             {/* <li>
               <NavLink to="/login">Login</NavLink>
             </li> */}
-            <li>
+            {/* <li>
               <NavLink className="" to="/register">
                 Register
               </NavLink>
-            </li>
+            </li> */}
 
             <div className="form-control mx-2">
               <label className="label cursor-pointer">
-                <span className="label-text m-1 ">Toggle Theme</span>
+                <span className="label-text m-1 text-white ">Toggle Theme</span>
                 <input type="checkbox" className="toggle m-1" />
               </label>
             </div>
