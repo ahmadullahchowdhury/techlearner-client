@@ -1,10 +1,16 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect  } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { fireAuthContext } from "../../UserContext/UserContext";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import { themeChange } from 'theme-change'
 
 const Header = () => {
-  const { user, userSingOut } = useContext(fireAuthContext);
+  const { user, userSingOut , loading } = useContext(fireAuthContext);
+
+  useEffect(() => {
+    themeChange(false)
+    
+  }, [])
 
   const [open, setOpen] = useState(false);
   const iconClick = () => {
@@ -41,6 +47,8 @@ const Header = () => {
               <img className="w-8 h-8 rounded-full  " src={user?.photoURL } alt="photo" title = {user?.displayName} />
             ): (<p>No User</p>)
           }
+          
+
         </div>
         <div className="flex-none">
           <ul
@@ -92,9 +100,10 @@ const Header = () => {
             <div className="form-control mx-2">
               <label className="label cursor-pointer">
                 <span className="label-text m-1 text-white ">Toggle Theme</span>
-                <input type="checkbox" className="toggle m-1" />
+                <input data-toggle-theme="dark,light"  type="checkbox" className="toggle m-1" />
               </label>
             </div>
+            
 
           </ul>
         </div>
