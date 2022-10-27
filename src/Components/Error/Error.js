@@ -3,7 +3,7 @@ import React from 'react';
 const Error = () => {
     return (
         <div>
-            <p>Page not found</p>
+            <p className='text-5xl font-bold m-7 p-7' >Page not found</p>
         </div>
     );
 };

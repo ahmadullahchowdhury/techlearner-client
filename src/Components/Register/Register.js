@@ -16,9 +16,11 @@ const auth = getAuth(app);
 
 
 const Register = () => {
+  const [error, setError] = useState('')
   const  navigate = useNavigate()
   const { createUser, profileUpdate } = useContext(fireAuthContext);
   const [accepted, setAccepted] = useState(false)  
+  //handling register btn
   const registerBtn = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -38,10 +40,11 @@ const Register = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(errorMessage)
         // ..
       });
   };
-
+//updating user name and photourl
   const handleUserUpdate = (name, photoURL) => {
     const profile = {
       displayName: name,
@@ -70,7 +73,7 @@ const Register = () => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="Name"
+                  placeholder="Full Name"
                   className="input input-bordered"
                 />
               </div>
@@ -111,6 +114,7 @@ const Register = () => {
                     Forgot password?
                   </a>
                 </label>
+                <p className="text-orange-700 p-3">{error}</p>
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary" disabled = {!accepted}>Register</button>

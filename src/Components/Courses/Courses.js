@@ -6,11 +6,12 @@ const Courses = () => {
   console.log(data);
   return (
     <div className="container mx-auto">
-      <h1>This is Courses</h1>
+      <h1 className="text-bold text-white text-4xl mt-7 mb-7">Explore Our All Courses</h1>
 
       <div className="flex flex-col w-full lg:flex-row">
-        <div className=" p-6 h-1/2 card bg-base-300 rounded-box place-items-center">
-            <p className="text-2xl font-bold">All Courses </p>
+        <div className=" p-6 w-72 h-1/2 card bg-base-300 rounded-box place-items-center">
+            <p className="text-2xl font-semibold">Popular Courses </p>
+            {/* sidebar */}
           {data.map((course) => (
             <Link to={`/courses/${course.id}`} className="p-2" key={course.id}>
               {course.name}
@@ -18,7 +19,9 @@ const Courses = () => {
           ))}
         </div>
         <div className="divider lg:divider-horizontal"></div>
+        
         <div className=" lg:grid grid-cols-3 card bg-base-300 rounded-box place-items-center">
+        {/* main section */}
           {data.map((course) => (
             <div key={course.id} className="card w-96 bg-base-100 shadow-xl">
               <figure className="   pt-10">

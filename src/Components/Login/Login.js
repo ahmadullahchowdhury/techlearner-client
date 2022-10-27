@@ -13,6 +13,8 @@ const Login = () => {
     let from = location.state?.from?.pathname || '/'
     const  navigate = useNavigate()
     const { signUser , googleLoginPopUp, githubLoginPopUp } = useContext(fireAuthContext);
+
+    //handling login form
     const loginBtn = (e) => {
       e.preventDefault();
       const email = e.target.email.value;
@@ -33,7 +35,7 @@ const Login = () => {
         
     };
 
-
+//google sign in
     const googleLoginHandler = () => {
       googleLoginPopUp().then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -54,6 +56,8 @@ const Login = () => {
         // ...
       });
     }
+
+    //github signin
     const githubLoginHandler = () => {
       githubLoginPopUp().then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -113,7 +117,7 @@ const Login = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-primary m-2">Login</button>
                 <button onClick={githubLoginHandler} className="btn btn-secondary m-2">Github Login</button>
-                <button onClick={googleLoginHandler} className="btn btn-secondary m-2">Google Login</button>
+                <button onClick={googleLoginHandler} className="btn btn-info m-2">Google Login</button>
               </div>
             </form>
           </div>

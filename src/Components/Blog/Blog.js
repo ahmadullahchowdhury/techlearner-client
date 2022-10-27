@@ -14,7 +14,7 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 const Blog = () => {
   return (
     <div className="container mx-auto">
-      <h1>This is from blog</h1>
+      <h1 className="text-bold text-white text-4xl mt-7 mb-7">Blog</h1>
       <Accordion>
             <AccordionItem>
                 <AccordionItemHeading>

@@ -17,6 +17,7 @@ code {
     monospace;
 }
 
+/* css theme code */
 :root {
   --my-color: #fff;
   /* or any other variables/style */
