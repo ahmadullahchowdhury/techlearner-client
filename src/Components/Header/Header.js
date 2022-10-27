@@ -66,7 +66,7 @@ const Header = () => {
             {user?.photoURL ? (
               <>
                 <img
-                  className="w-8 h-8 rounded-full mt-2 mr-2 "
+                  className="md: m-3 w-8 h-8 rounded-full lg: mt-2 mr-2"
                   src={user?.photoURL}
                   alt="photo"
                   title={user?.displayName}

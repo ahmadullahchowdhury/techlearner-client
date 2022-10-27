@@ -9,7 +9,7 @@ const Courses = () => {
       <h1 className="text-bold text-white text-4xl mt-7 mb-7">Explore Our All Courses</h1>
 
       <div className="flex flex-col w-full lg:flex-row">
-        <div className=" p-6 w-72 h-1/2 card bg-base-300 rounded-box place-items-center">
+        <div className=" p-6 w-72 mx-auto h-1/2 card bg-base-300 rounded-box place-items-center">
             <p className="text-2xl font-semibold">Popular Courses </p>
             {/* sidebar */}
           {data.map((course) => (
